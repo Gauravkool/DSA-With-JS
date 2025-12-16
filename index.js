@@ -41,3 +41,35 @@ x = x * y;
 y = x / y;  
 x = x / y;  
 console.log(x, y);
+
+
+// operator
+
+let p = 7;
+let q = 8;
+console.log(p != q);
+
+let num1 = 11;
+let num2 = 22;
+let num3 = num1 + num2 + num1++ + num2++ + ++num1 + ++num2; 
+// num3 = 11 + 22 + 11 + 22 + 13 + 24 = 103
+console.log(num3);
+console.log(num1, num2);
+
+// 
+let number = true;
+// number++;
+++number
+console.log(number);
+
+// Math object
+console.log(Math.PI);
+console.log(Math.E);
+console.log(Math.cbrt(27));
+console.log(Math.abs(27)); // nagetive to positive
+console.log(Math.max(27,56));
+console.log(Math.min(27, 66, 2, 34, -5, -67));
+console.log((Math.floor(Math.random() * 10000) + 3));
+let toFixed = 689.89788786;
+console.log(+toFixed.toFixed(2));
+
