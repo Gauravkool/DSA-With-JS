@@ -27,9 +27,9 @@ console.log(x, y);
 [x, y] = [y, x]; // destructuring assignment
 console.log(x, y);
 // swaping without third variable
-x = x + y;  // x now becomes 15
-y = x - y;  // y becomes 5
-x = x - y;  // x becomes 10
+x = x + y; // x now becomes 15
+y = x - y; // y becomes 5
+x = x - y; // x becomes 10
 console.log(x, y);
 // swaping with xor operator
 x = x ^ y;
@@ -37,11 +37,10 @@ y = x ^ y;
 x = x ^ y;
 console.log(x, y);
 // swaping with multiplication and division
-x = x * y;  
-y = x / y;  
-x = x / y;  
+x = x * y;
+y = x / y;
+x = x / y;
 console.log(x, y);
-
 
 // operator
 
@@ -51,15 +50,15 @@ console.log(p != q);
 
 let num1 = 11;
 let num2 = 22;
-let num3 = num1 + num2 + num1++ + num2++ + ++num1 + ++num2; 
+let num3 = num1 + num2 + num1++ + num2++ + ++num1 + ++num2;
 // num3 = 11 + 22 + 11 + 22 + 13 + 24 = 103
 console.log(num3);
 console.log(num1, num2);
 
-// 
+//
 let number = true;
 // number++;
-++number
+++number;
 console.log(number);
 
 // Math object
@@ -67,9 +66,58 @@ console.log(Math.PI);
 console.log(Math.E);
 console.log(Math.cbrt(27));
 console.log(Math.abs(27)); // nagetive to positive
-console.log(Math.max(27,56));
+console.log(Math.max(27, 56));
 console.log(Math.min(27, 66, 2, 34, -5, -67));
-console.log((Math.floor(Math.random() * 10000) + 3));
+console.log(Math.floor(Math.random() * 10000) + 3);
 let toFixed = 689.89788786;
 console.log(+toFixed.toFixed(2));
 
+// payable amount according to the shopping bill amount
+// let billAmount = Number(prompt("Please enter your amount"));
+let discountPercent = 0;
+
+// if (billAmount > 0 && billAmount <= 5000) {
+//   discountPercent = 0;
+// } else if (billAmount <= 7000) {
+//   discountPercent = 10;
+// } else if (billAmount <= 9000) {
+//   discountPercent = 15;
+// } else if (billAmount > 9000) {
+//   discountPercent = 20;
+// } else {
+//   console.log("Invalid amount");
+// }
+
+// let discount = Math.floor(billAmount * discountPercent) / 100;
+// let payableAmount = Math.floor(billAmount - discount);
+
+console.log(
+  // `Your bill amount is ${billAmount} and payable amount is ${payableAmount}`
+);
+
+// Electricity Bill
+let units = Number(prompt("Enter electricity units"));
+let bill = 0;
+
+if (units > 0) {
+  if (units > 400) {
+    bill += (units - 400) * 13;
+    units = 400;
+  }
+
+  if (units > 200) {
+    bill += (units - 200) * 8;
+    units = 200;
+  }
+
+  if (units > 100) {
+    bill += (units - 100) * 6;
+    units = 100;
+  }
+
+  bill += units * 4;
+
+  console.log("Total Electricity Bill:", bill);
+} else {
+  console.log("Invalid units");
+}
