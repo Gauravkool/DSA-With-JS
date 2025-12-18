@@ -1,105 +1,164 @@
-let a = 10;
-let b = 20;
-// console.log`(sum of 10 and 20: + ${a + b})`; // 30
+/**************************************
+ Q1. Sum of two numbers
+**************************************/
+function sum(a, b) {
+  return a + b;
+}
 
-// Type Coercion
+/**************************************
+ Q2. Type Coercion examples
+**************************************/
+function typeCoercion(c, d) {
+  return {
+    addition: c + d, // string concat
+    subtraction: c - d, // number
+    multiplication: c * d,
+    division: c / d,
+  };
+}
 
-let c = "9";
-let d = 4;
-// console.log`(sum of "9" and 4: + ${c + d})`; // 94
-// console.log`(sum of "9" and 4: + ${c - d})`; // 5
-// console.log`(sum of "9" and 4: + ${c * d})`; // 36
-// console.log`(sum of "9" and 4: + ${c / d})`; // 2.25
+/**************************************
+ Q3. Type casting (string to number)
+**************************************/
+function toNumber(value) {
+  return +value;
+}
 
-// Accest and print
+/**************************************
+ Q4. Swapping using third variable
+**************************************/
+function swapWithTemp(x, y) {
+  let z = x;
+  x = y;
+  y = z;
+  return [x, y];
+}
 
-// let age = +prompt("Enter your age: "); // type casting string to number
-// console.log(age)
+/**************************************
+ Q5. Swapping using destructuring
+**************************************/
+function swapDestructuring(x, y) {
+  [x, y] = [y, x];
+  return [x, y];
+}
 
-// swaping with five things
+/**************************************
+ Q6. Swapping without third variable
+     (Addition & Subtraction)
+**************************************/
+function swapAddSub(x, y) {
+  x = x + y;
+  y = x - y;
+  x = x - y;
+  return [x, y];
+}
 
-let x = 5;
-let y = 10;
-let z = x;
-x = y;
-y = z;
-console.log(x, y);
-[x, y] = [y, x]; // destructuring assignment
-console.log(x, y);
-// swaping without third variable
-x = x + y; // x now becomes 15
-y = x - y; // y becomes 5
-x = x - y; // x becomes 10
-console.log(x, y);
-// swaping with xor operator
-x = x ^ y;
-y = x ^ y;
-x = x ^ y;
-console.log(x, y);
-// swaping with multiplication and division
-x = x * y;
-y = x / y;
-x = x / y;
-console.log(x, y);
+/**************************************
+ Q7. Swapping using XOR operator
+**************************************/
+function swapXor(x, y) {
+  x = x ^ y;
+  y = x ^ y;
+  x = x ^ y;
+  return [x, y];
+}
 
-// operator
+/**************************************
+ Q8. Swapping using multiplication
+     and division
+**************************************/
+function swapMulDiv(x, y) {
+  x = x * y;
+  y = x / y;
+  x = x / y;
+  return [x, y];
+}
 
-let p = 7;
-let q = 8;
-console.log(p != q);
+/**************************************
+ Q9. Not equal (!=) operator
+**************************************/
+function notEqual(p, q) {
+  return p != q;
+}
 
-let num1 = 11;
-let num2 = 22;
-let num3 = num1 + num2 + num1++ + num2++ + ++num1 + ++num2;
-// num3 = 11 + 22 + 11 + 22 + 13 + 24 = 103
-console.log(num3);
-console.log(num1, num2);
+/**************************************
+ Q10. Pre & post increment operation
+**************************************/
+function complexIncrement() {
+  let num1 = 11;
+  let num2 = 22;
 
-//
-let number = true;
-// number++;
-++number;
-console.log(number);
+  let result = num1 + num2 + num1++ + num2++ + ++num1 + ++num2;
 
-// Math object
-console.log(Math.PI);
-console.log(Math.E);
-console.log(Math.cbrt(27));
-console.log(Math.abs(27)); // nagetive to positive
-console.log(Math.max(27, 56));
-console.log(Math.min(27, 66, 2, 34, -5, -67));
-console.log(Math.floor(Math.random() * 10000) + 3);
-let toFixed = 689.89788786;
-console.log(+toFixed.toFixed(2));
+  return {
+    result,
+    num1,
+    num2,
+  };
+}
 
-// payable amount according to the shopping bill amount
-// let billAmount = Number(prompt("Please enter your amount"));
-let discountPercent = 0;
+/**************************************
+ Q11. Boolean increment
+**************************************/
+function booleanIncrement() {
+  let number = true;
+  ++number;
+  return number;
+}
 
-// if (billAmount > 0 && billAmount <= 5000) {
-//   discountPercent = 0;
-// } else if (billAmount <= 7000) {
-//   discountPercent = 10;
-// } else if (billAmount <= 9000) {
-//   discountPercent = 15;
-// } else if (billAmount > 9000) {
-//   discountPercent = 20;
-// } else {
-//   console.log("Invalid amount");
-// }
+/**************************************
+ Q12. Math object operations
+**************************************/
+function mathOperations() {
+  return {
+    pi: Math.PI,
+    e: Math.E,
+    cubeRoot: Math.cbrt(27),
+    absValue: Math.abs(-27),
+    maxValue: Math.max(27, 56),
+    minValue: Math.min(27, 66, 2, 34, -5, -67),
+    randomNumber: Math.floor(Math.random() * 10000) + 3,
+    fixedValue: +(689.89788786).toFixed(2),
+  };
+}
 
-// let discount = Math.floor(billAmount * discountPercent) / 100;
-// let payableAmount = Math.floor(billAmount - discount);
+/**************************************
+ Q13. Shopping bill discount calculation
+**************************************/
+function calculatePayableAmount(billAmount) {
+  let discountPercent = 0;
 
-console.log(
-  // `Your bill amount is ${billAmount} and payable amount is ${payableAmount}`
-);
+  if (billAmount > 0 && billAmount <= 5000) {
+    discountPercent = 0;
+  } else if (billAmount <= 7000) {
+    discountPercent = 10;
+  } else if (billAmount <= 9000) {
+    discountPercent = 15;
+  } else if (billAmount > 9000) {
+    discountPercent = 20;
+  } else {
+    return "Invalid amount";
+  }
 
-// Electricity Bill
-let units = Number(prompt("Enter electricity units"));
-let bill = 0;
+  let discount = Math.floor((billAmount * discountPercent) / 100);
+  let payableAmount = billAmount - discount;
 
-if (units > 0) {
+  return {
+    billAmount,
+    discountPercent,
+    discount,
+    payableAmount,
+  };
+}
+
+/**************************************
+ Q14. Electricity bill calculation
+**************************************/
+function calculateElectricityBill(units) {
+  let bill = 0;
+
+  if (units <= 0) return "Invalid units";
+
   if (units > 400) {
     bill += (units - 400) * 13;
     units = 400;
@@ -117,7 +176,35 @@ if (units > 0) {
 
   bill += units * 4;
 
-  console.log("Total Electricity Bill:", bill);
-} else {
-  console.log("Invalid units");
+  return bill;
+}
+
+// INR demonination
+function inrDenomination(amount) {
+  const notes = [2000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
+  let result = {};
+
+  for (let note of notes) {
+    if (amount >= note) {
+      result[note] = Math.floor(amount / note);
+      amount = amount % note;
+    }
+  }
+  return result;
+}
+
+let num = 0.1 + 0.2; // 0.30000000000000004
+let num2 = (0.1 + 0.2).toFixed(1);
+
+switch (num2) {
+  case "0.3":
+    console.log("hello");
+    break;
+
+  case "0.5":
+    console.log("hey");
+    break;
+
+  default:
+    console.log("namaste");
 }
