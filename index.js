@@ -179,7 +179,7 @@ function calculateElectricityBill(units) {
   return bill;
 }
 
-// INR demonination
+// INR denomination
 function inrDenomination(amount) {
   const notes = [2000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
   let result = {};
@@ -208,3 +208,51 @@ switch (num2) {
   default:
     console.log("namaste");
 }
+
+// sum of natural number
+const sumNaturalNum = (endNum) => {
+  let sumNum = 0;
+  for (let i = 1; i <= endNum; i++) {
+    sumNum += i;
+  }
+  return sumNum;
+};
+
+// factorial
+const factorial = (num) => {
+  let result = 1;
+  for (let i = 1; i <= num; i++) {
+    result *= i;
+  }
+  return result;
+};
+
+// factors
+const factors = (fac) => {
+  let result = [];
+  for (let i = 1; i <= Math.sqrt(fac); i++) {
+    if (fac % i === 0) {
+      result.push(i); // push small factor
+
+      if (i !== fac / i) {
+        result.push(fac / i); // push big factor
+      }
+    }
+  }
+};
+
+// prime number
+const isPrime = (num) => {
+  if (num <= 1) return false;
+
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+console.log(isPrime(13)); // true
+
