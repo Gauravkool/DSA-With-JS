@@ -254,5 +254,51 @@ const isPrime = (num) => {
   return true;
 };
 
-console.log(isPrime(13)); // true
+// another function for prime number
+const isPrimeAnother = (n) => {
+  if (n <= 0) return false;
+  if (n === 2) return true;
+  if (n % 2 == 0) return false;
+  for (i = 3; i <= Math.floor(Math.sqrt(n)); i += 2) {
+    if (n % i == 0) return false;
+  }
+  return true;
+};
 
+// sum of digits
+const sumDigit = (n) => {
+  let sum = 0;
+  while (n > 0) {
+    sum += n % 10;
+    n = Math.floor(n / 10);
+  }
+  return sum;
+};
+
+// reverse number
+const reverseNum = (num) => {
+  let result = 0;
+  while (num > 0) {
+    let digit = num % 10;
+    result = result * 10 + digit;
+    num = Math.floor(num / 10);
+  }
+  return result;
+};
+
+// strong number
+const isStrongNum = (n) => {
+  let realNum = n;
+  let result = 0;
+  while (n > 0) {
+    let rem = n % 10;
+    let fect = 1;
+    for (let i = 1; i <= rem; i++) {
+      fect *= i;
+    }
+    result += fect;
+    n = Math.floor(n / 10);
+  }
+  return result === realNum;
+};
+console.log(isStrongNum(145));
