@@ -301,4 +301,27 @@ const isStrongNum = (n) => {
   }
   return result === realNum;
 };
-console.log(isStrongNum(145));
+
+// Guess the random number
+
+const guessRandomNum = () => {
+  let randomNum = Math.floor(Math.random() * 100) + 1;
+  let guess = -1;
+
+  while (guess !== randomNum) {
+    guess = +prompt("Guess the number (1 to 100)");
+
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+      console.log("Please try again. Number should be between 1 and 100.");
+      continue;
+    }
+
+    if (guess > randomNum) {
+      console.log("Too high, please try again");
+    } else if (guess < randomNum) {
+      console.log("Too low, please try again");
+    } else {
+      console.log("Congrats! The number was: " + guess);
+    }
+  }
+};
