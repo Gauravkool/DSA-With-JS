@@ -325,3 +325,56 @@ const guessRandomNum = () => {
     }
   }
 };
+
+// star pattern
+
+function printStarPattern() {
+  let prompt = require("prompt-sync")();
+  let number = +prompt("Enter Your Number: ");
+
+  for (let i = 1; i <= number; i++) {
+    for (let j = 1; j <= number; j++) {
+      process.stdout.write("* ");
+    }
+    console.log(); // move to next line
+  }
+}
+
+function printStarPattern1() {
+  let prompt = require("prompt-sync")();
+  let number = +prompt("Enter Your Number: ");
+
+  for (let i = 1; i <= number; i++) {
+    for (let j = 1; j <= i; j++) {
+      process.stdout.write("* ");
+    }
+    console.log(); // move to next line
+  }
+}
+
+function printStarPattern2() {
+  let prompt = require("prompt-sync")();
+  let number = +prompt("Enter Your Number: ");
+
+  for (let i = 1; i <= number; i++) {
+    for (let j = i; j <= number; j++) {
+      process.stdout.write("* ");
+    }
+    console.log(); // move to next line
+  }
+}
+
+function printChaPattern() {
+  let prompt = require("prompt-sync")();
+  let number = +prompt("Enter Your Number: ");
+
+  for (let i = 1; i <= number; i++) {
+    let ascii = 65;
+    for (let j = 1; j <= i; j++) {
+      process.stdout.write(`${String.fromCharCode(ascii)} `);
+      ascii++;
+    }
+    console.log(); // move to next line
+  }
+}
+printChaPattern();
