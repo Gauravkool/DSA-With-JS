@@ -357,7 +357,8 @@ function printStarPattern2() {
   let number = +prompt("Enter Your Number: ");
 
   for (let i = 1; i <= number; i++) {
-    for (let j = i; j <= number; j++) {
+    for (let j = 1; j <= number - i + 1; j++) {
+      // j=i; j<=n; j++ // j=n; j>=i; j--
       process.stdout.write("* ");
     }
     console.log(); // move to next line
@@ -377,4 +378,75 @@ function printChaPattern() {
     console.log(); // move to next line
   }
 }
-printChaPattern();
+
+// mirror right angle stars pattern
+function printStarPattern3() {
+  let prompt = require("prompt-sync")();
+  let number = +prompt("Enter Your Number: ");
+
+  for (let i = 1; i <= number; i++) {
+    for (let j = 1; j <= number - i; j++) {
+      process.stdout.write("  ");
+    }
+    for (let j = 1; j <= i; j++) {
+      process.stdout.write("* ");
+    }
+    console.log(); // move to next line
+  }
+}
+
+// X pattern
+function printXStarPattern() {
+  let prompt = require("prompt-sync")();
+  let number = +prompt("Enter Your Number: ");
+
+  for (let i = 1; i <= number; i++) {
+    for (let j = 1; j <= number; j++) {
+      if (i == j || i + j == number + 1) {
+        process.stdout.write("* ");
+      } else {
+        process.stdout.write("  ");
+      }
+    }
+    console.log(); // move to next line
+  }
+}
+// printTriangleStarPattern
+function printCenteredSpacedTriangle() {
+  let prompt = require("prompt-sync")();
+  let number = +prompt("Enter Your Number: ");
+
+  for (let i = 1; i <= number; i++) {
+    // print spaces
+    for (let j = 1; j <= number - i; j++) {
+      process.stdout.write(" ");
+    }
+    // print stars with space
+    for (let j = 1; j <= i; j++) {
+      process.stdout.write("* ");
+    }
+
+    console.log();
+  }
+}
+printCenteredSpacedTriangle();
+
+// V pattern
+function printVStarPattern() {
+  let prompt = require("prompt-sync")();
+  let number = +prompt("Enter Your Number: ");
+
+  for (let i = 1; i <= number; i++) {
+    for (let j = 1; j <= 2*number-1; j++) {
+      if (i == j || i + j == 2*number) {
+        process.stdout.write("* ");
+      } else {
+        process.stdout.write("  ");
+      }
+    }
+    console.log(); // move to next line
+  }
+}
+
+
+
