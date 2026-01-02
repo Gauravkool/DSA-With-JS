@@ -429,7 +429,6 @@ function printCenteredSpacedTriangle() {
     console.log();
   }
 }
-printCenteredSpacedTriangle();
 
 // V pattern
 function printVStarPattern() {
@@ -437,8 +436,8 @@ function printVStarPattern() {
   let number = +prompt("Enter Your Number: ");
 
   for (let i = 1; i <= number; i++) {
-    for (let j = 1; j <= 2*number-1; j++) {
-      if (i == j || i + j == 2*number) {
+    for (let j = 1; j <= 2 * number - 1; j++) {
+      if (i == j || i + j == 2 * number) {
         process.stdout.write("* ");
       } else {
         process.stdout.write("  ");
@@ -448,5 +447,83 @@ function printVStarPattern() {
   }
 }
 
+// sum of n arr elements
+function sumArr() {
+  let arr = [10, 30, 29, 30, 47];
+  let sumOfArr = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sumOfArr += arr[i];
+  }
+  console.log(sumOfArr, "sum arrays element");
+}
+// find max number in array
 
+function maxEle(arr) {
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (max < arr[i]) {
+      max = arr[i];
+    }
+  }
+  console.log("Max number", max);
+}
+// find 2nd max number in array
 
+function findSecondMaxEle(arr) {
+  let max = Math.max(arr[0], arr[1]);
+  let sMax = Math.min(arr[0], arr[1]);
+  for (let i = 2; i < arr.length; i++) {
+    if (arr[i] > max) {
+      sMax = max;
+      max = arr[i];
+    } else if (arr[i] > sMax && max != arr[i]) {
+      sMax = arr[i];
+    }
+  }
+  console.log("Second Max", sMax);
+}
+
+// reverse array
+
+function reverseArr(arr) {
+  let reverseArrEl = [];
+  let len = arr.length;
+  let j = 0;
+  for (let i = len - 1; i >= 0; i--) {
+    reverseArrEl[j] = arr[i];
+    j++;
+  }
+  console.log("Reverse Array", reverseArrEl);
+}
+
+// without any extra space mean
+
+function reverseArrWithoutExtraSpace(arr) {
+  let start = 0;
+  let end = arr.length - 1;
+  while (start < end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+  console.log("reverse array", arr);
+}
+// move all zero left side and 1 right side
+
+function moveZeroLeftOneRightSide(arr) {
+  let i = 0;
+  let j = 0;
+  while (i < arr.length) {
+    if (arr[i] == 0) {
+      let tem = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tem;
+      j++;
+    }
+    i++;
+  }
+  console.log("array", arr);
+}
+moveZeroLeftOneRightSide([0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1]);
