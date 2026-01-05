@@ -526,4 +526,72 @@ function moveZeroLeftOneRightSide(arr) {
   }
   console.log("array", arr);
 }
-moveZeroLeftOneRightSide([0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1]);
+
+// left notation by 1 element
+function leftRotationByOne(arr) {
+  let firstEl = arr[0];
+  for (let i = 0; i < arr.length - 1; i++) {
+    arr[i] = arr[i + 1];
+  }
+  arr[arr.length - 1] = firstEl;
+  console.log("Arr", arr);
+}
+
+// right notation by 1 element
+function rightRotationByOne(arr) {
+  let lastEl = arr[arr.length - 1];
+  for (let i = arr.length - 1; i > 0; i--) {
+    arr[i] = arr[i - 1];
+  }
+  arr[0] = lastEl;
+  console.log("Arr", arr);
+}
+
+// left rotaton by k steps
+function leftRotationByUserSteps(arr) {
+  let prompt = require("prompt-sync")();
+  let steps = +prompt("Please Enter the steps ");
+  steps = steps % arr.length;
+  for (let j = 0; j < steps; j++) {
+    let firstEl = arr[0];
+    for (let i = 0; i < arr.length - 1; i++) {
+      arr[i] = arr[i + 1];
+    }
+    arr[arr.length - 1] = firstEl;
+  }
+  console.log("Arr", arr);
+}
+// with extra space
+function leftRotationByUserStepWithExtraSpace(arr) {
+  let prompt = require("prompt-sync")();
+  let steps = +prompt("Please Enter the steps ");
+  let n = arr.length;
+  steps = steps % n;
+  let tem = [];
+  for (let i = 0; i < n; i++) {
+    tem[i] = arr[(i + steps) % n];
+  }
+  console.log("Arr", tem);
+}
+
+// without extra space
+function leftRotationByUserStepWithoutExtraSpace(arr) {
+  let prompt = require("prompt-sync")();
+  let steps = +prompt("Enter the steps ");
+  steps = steps % arr.length;
+  function reverse(i, j) {
+    while (i < j) {
+      let tem = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tem;
+      i++;
+      j--;
+    }
+  }
+  reverse(0, steps - 1);
+  reverse(steps, arr.length - 1);
+  reverse(0, arr.length - 1);
+  console.log("Array",arr);
+  
+}
+leftRotationByUserStepWithoutExtraSpace([1, 2, 3, 4, 5]);
