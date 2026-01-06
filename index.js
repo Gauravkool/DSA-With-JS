@@ -591,7 +591,42 @@ function leftRotationByUserStepWithoutExtraSpace(arr) {
   reverse(0, steps - 1);
   reverse(steps, arr.length - 1);
   reverse(0, arr.length - 1);
-  console.log("Array",arr);
-  
+  console.log("Array", arr);
 }
-leftRotationByUserStepWithoutExtraSpace([1, 2, 3, 4, 5]);
+
+// remove Duplicates from sorted array
+
+function removeDuplicates(nums) {
+  let j = 1;
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] !== nums[i + 1]) {
+      nums[j] = nums[i + 1];
+      j++;
+    }
+  }
+  console.log("k =", j);
+  console.log("nums =", nums);
+  return j;
+}
+
+// merge two sorted array
+
+function mergeTwoSortedArray(arr1, arr2) {
+  let i = 0, j = 0, k = 0;
+  let mergedArr = new Array(arr1.length + arr2.length);
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      mergedArr[k++] = arr1[i++];
+    } else {
+      mergedArr[k++] = arr2[j++];
+    }
+  }
+  while (i < arr1.length) {
+    mergedArr[k++] = arr1[i++];
+  }
+  while (j < arr2.length) {
+    mergedArr[k++] = arr2[j++];
+  }
+  console.log("merged array", mergedArr);
+}
+mergeTwoSortedArray([3, 5, 6], [1, 2, 4, 7, 9]);
