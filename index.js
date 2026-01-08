@@ -612,7 +612,9 @@ function removeDuplicates(nums) {
 // merge two sorted array
 
 function mergeTwoSortedArray(arr1, arr2) {
-  let i = 0, j = 0, k = 0;
+  let i = 0,
+    j = 0,
+    k = 0;
   let mergedArr = new Array(arr1.length + arr2.length);
   while (i < arr1.length && j < arr2.length) {
     if (arr1[i] < arr2[j]) {
@@ -629,4 +631,22 @@ function mergeTwoSortedArray(arr1, arr2) {
   }
   console.log("merged array", mergedArr);
 }
-mergeTwoSortedArray([3, 5, 6], [1, 2, 4, 7, 9]);
+
+// sort the color
+function sortColors(nums) {
+  let i = 0;
+  let j = 0;
+  let k = nums.length - 1;
+  while (i <= k) {
+    if (nums[i] === 0) {
+      [nums[j], nums[i]] = [nums[i], nums[j]];
+      j++, i++;
+    } else if (nums[i] === 2) {
+      [nums[k], nums[i]] = [nums[i], nums[k]];
+      k--;
+    } else i++;
+  }
+  console.log(nums, "nums");
+  return nums;
+}
+sortColors([2,0,1]);
