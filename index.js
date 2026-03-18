@@ -640,7 +640,7 @@ function sortColors(nums) {
   while (i <= k) {
     if (nums[i] === 0) {
       [nums[j], nums[i]] = [nums[i], nums[j]];
-      j++, i++;
+      (j++, i++);
     } else if (nums[i] === 2) {
       [nums[k], nums[i]] = [nums[i], nums[k]];
       k--;
@@ -649,4 +649,33 @@ function sortColors(nums) {
   console.log(nums, "nums");
   return nums;
 }
-sortColors([2,0,1]); 
+
+// Find Maximum of subArray with the Kadane's Algorithm
+
+function findMaxWithKadane(arr) {
+  let currentSum = 0;
+  let maxSum = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    currentSum += arr[i];
+    maxSum = Math.max(maxSum, currentSum);
+    if (currentSum < 0) currentSum = 0;
+  }
+  return maxSum;
+}
+
+// find the majority element using moore's voting algo
+
+function majorityElement(nums) {
+  let ans = nums[0];
+  let count = 1;
+  for (let i = 1; i < nums.length; i++) {
+    if (count === 0) {
+      ans = nums[i];
+      count = 1;
+    } else if (ans === nums[i]) count++;
+    else count--;
+  }
+  return ans;
+}
+
+// Trapping Rain Water
