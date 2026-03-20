@@ -679,3 +679,25 @@ function majorityElement(nums) {
 }
 
 // Trapping Rain Water
+const trap = (height) => {
+  let left = new Array(height.length); // same number of length as heightArray
+  let right = new Array(height.length); // same number of length as heightArray
+  let maxLeft = height[0]; // let highest Elevation from left side is 1st element of array
+  let maxRight = height[height.length - 1];; // let highest Elevation from right side is 1st element of array
+  left[0] = maxLeft; // put the maxElevation of 1st array from left
+  right[height.length - 1] = maxRight; // put the maxElevation of 1st array from right
+  for (let i = 1; i < height.length; i++) {
+    maxLeft = Math.max(height[i], maxLeft);
+    left[i] = maxLeft;
+  }
+  for (let i = height.length - 2; i >= 0; i--) {
+    maxRight = Math.max(height[i], maxRight);
+    right[i] = maxRight;
+  }
+  let ans = 0;
+  for (let i = 0; i < height.length; i++) {
+    ans += Math.min(left[i], right[i]) - height[i];
+  }
+  return ans;
+};
+console.log(trap([4, 2, 0, 3, 2, 5]));
