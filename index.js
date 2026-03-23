@@ -683,7 +683,7 @@ const trap = (height) => {
   let left = new Array(height.length); // same number of length as heightArray
   let right = new Array(height.length); // same number of length as heightArray
   let maxLeft = height[0]; // let highest Elevation from left side is 1st element of array
-  let maxRight = height[height.length - 1];; // let highest Elevation from right side is 1st element of array
+  let maxRight = height[height.length - 1]; // let highest Elevation from right side is 1st element of array
   left[0] = maxLeft; // put the maxElevation of 1st array from left
   right[height.length - 1] = maxRight; // put the maxElevation of 1st array from right
   for (let i = 1; i < height.length; i++) {
@@ -700,4 +700,23 @@ const trap = (height) => {
   }
   return ans;
 };
-console.log(trap([4, 2, 0, 3, 2, 5]));
+
+// STRING
+// check string are palindrome or not
+
+const isPalindrome = (str) => {
+  let i = 0;
+  let j = str.length - 1;
+
+  while (i < j) {
+    if (str[i] !== str[j]) {
+      return false;
+    }
+    i++;
+    j--;
+  }
+
+  return true;
+}
+
+console.log(isPalindrome("madam")); // true
