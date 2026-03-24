@@ -717,6 +717,23 @@ const isPalindrome = (str) => {
   }
 
   return true;
-}
+};
 
-console.log(isPalindrome("madam")); // true
+// toggle string character
+
+const toggleStringChar = (str) => {
+  let toggle = "";
+  for (let i = 0; i < str.length; i++) {
+    let char = str.charCodeAt(i);
+    if (char >= 65 && char <= 90) {
+      toggle = toggle + String.fromCharCode(char + 32);
+    } else if (char >= 97 && char <= 122) {
+      toggle = toggle + String.fromCharCode(char - 32);
+    } else {
+      toggle += str[i]; // same write non-alphabet
+    }
+  }
+  return toggle;
+};
+
+console.log(toggleStringChar("aBcDeFgYnK"));
