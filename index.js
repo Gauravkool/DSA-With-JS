@@ -751,3 +751,4 @@ const freqChar = (str) => {
   }
 };
 freqChar("hello");
+
