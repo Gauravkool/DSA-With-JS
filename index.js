@@ -717,6 +717,37 @@ const isPalindrome = (str) => {
   }
 
   return true;
-}
+};
 
-console.log(isPalindrome("madam")); // true
+// toggle string character
+
+const toggleStringChar = (str) => {
+  let toggle = "";
+  for (let i = 0; i < str.length; i++) {
+    let char = str.charCodeAt(i);
+    if (char >= 65 && char <= 90) {
+      toggle = toggle + String.fromCharCode(char + 32);
+    } else if (char >= 97 && char <= 122) {
+      toggle = toggle + String.fromCharCode(char - 32);
+    } else {
+      toggle += str[i]; // same write non-alphabet
+    }
+  }
+  return toggle;
+};
+
+// frequency of each character
+
+const freqChar = (str) => {
+  let arr = new Array(128).fill(0);
+  for (let i = 0; i < str.length; i++) {
+    let indx = str.charCodeAt(i);
+    arr[indx] = arr[indx] + 1;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      console.log(String.fromCharCode(i) + " appears at " + arr[i] + " times");
+    }
+  }
+};
+freqChar("hello");
