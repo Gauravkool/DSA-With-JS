@@ -787,3 +787,4 @@ const selectionSort = (arr) => {
   console.log(arr);
 };
 selectionSort([10, 5, 8, 2, 4]);
+
