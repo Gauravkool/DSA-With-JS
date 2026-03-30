@@ -802,3 +802,4 @@ const insertionSort = (arr) => {
   console.log(arr)
 };
 insertionSort([10, 6, 9, 7, 2, 19]);
+
